@@ -122,7 +122,7 @@
             top: 0;
             left: -450px;
             /* Start hidden off the left side of the screen */
-            width: 450px;
+            width: 250px;
             height: 100vh;
             background-color: #333;
             color: white;
