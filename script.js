@@ -29,7 +29,7 @@
 
                 const span = document.createElement('span');
                 span.title = `${elementSymbol}`;
-                span.textContent = elementS ymbol;
+                span.textContent = elementSymbol;
                 span.style.left = `${x}px`;
                 span.style.top = `${y}px`;
                 span.style.position = 'absolute';
