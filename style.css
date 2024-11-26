@@ -1,0 +1,148 @@
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #000;
+            /* Dark background */
+            color: white;
+            /* White text for better contrast */
+            position: relative;
+            overflow: hidden;
+            /* Avoid scrollbars */
+        }
+
+     .nucleus {
+            width: 150px;
+            height: 150px;
+            background-color: #ff5757;
+            /* Soft red for nucleus */
+            border-radius: 50%;
+            text-align: center;
+            line-height: 150px;
+            position: absolute;
+            z-index: 10;
+            font-weight: bold;
+            font-size: 1.5em;
+            color: white;
+            /* White text for nucleus */
+        }
+
+     .orbital {
+            position: absolute;
+            border-radius: 50%;
+            border: 1px solid #444;
+            /* Subtle circle lines */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: spin 20s linear infinite;
+            /* Default spin animation */
+        }
+
+     .orbital span {
+            position: absolute;
+            background-color: black;
+            /* Dark fill */
+            border: 2px solid white;
+            /* White circular borders */
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            cursor: pointer;
+            transform-origin: center center;
+            font-size: 0.9em;
+            font-weight: bold;
+            color: white;
+            /* White text */
+            box-shadow: 0 0 5px white;
+            /* Add glow effect */
+        }
+
+     .orbital:hover span {
+            background-color: #444;
+            /* Slight hover color change */
+            box-shadow: 0 0 15s white;
+            /* Stronger glow on hover */
+        }
+
+        /* Size of orbitals */
+     .shell1 {
+            width: 300px;
+            height: 300px;
+            animation-duration: 15s;
+        }
+
+     .shell2 {
+            width: 450px;
+            height: 450px;
+            animation-duration: 17s;
+        }
+
+     .shell3 {
+            width: 600px;
+            height: 600px;
+            animation-duration: 19s;
+        }
+
+     .shell4 {
+            width: 750px;
+            height: 750px;
+            animation-duration: 21s;
+        }
+
+     .shell5 {
+            width: 900px;
+            height: 900px;
+            animation-duration: 23s;
+        }
+
+     .shell6 {
+            width: 1050px;
+            height: 1050px;
+            animation-duration: 25s;
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+     .sidebar-menu {
+            position: fixed;
+            top: 0;
+            left: -450px;
+            /* Start hidden off the left side of the screen */
+            width: 450px;
+            height: 100vh;
+            background-color: #333;
+            color: white;
+            transition: left 1s ease;
+            /* Smooth transition for sliding in/out */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 20;
+            /* Higher z-index to be on top of other elements */
+            opacity: 0;
+            /* Start as invisible */
+            pointer-events: none;
+            /* Don't respond to clicks when hidden */
+        }
+
+     .sidebar-menu.active {
+            left: 0;
+            /* Slide in when active */
+            opacity: 1;
+            pointer-events: auto;
+        }
