@@ -49,7 +49,3 @@ const initShells = () => {
 
 // Run the initShells function when the DOM content is fully loaded
 document.addEventListener('DOMContentLoaded', initShells);
-        bodyElement.addEventListener('mouseleave', () => {
-            const sidebarMenu = document.querySelector('.sidebar-menu');
-            sidebarMenu.classList.remove('active');
-        });
