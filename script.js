@@ -8,12 +8,12 @@ const elements = [
 ];
 
 const shells = {
-    shell1: [0, 1], // 2 electrons
-    shell2: [2, 3, 4, 5, 6, 7, 8, 9], // 8 electrons
-    shell3: [10, 11, 12, 13, 14, 15, 16, 17], // 8 electrons
-    shell4: [18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], // 12 electrons
-    shell5: [30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45], // 16 electrons
-    shell6: [46, 47, 48, 49, 50, 51, 52, 53] // 8 electrons
+    shell1: [0, 1], 
+    shell2: [2, 3, 4, 5, 6, 7, 8, 9],
+    shell3: [10, 11, 12, 13, 14, 15, 16, 17], 
+    shell4: [18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], 
+    shell5: [30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45], 
+    shell6: [46, 47, 48, 49, 50, 51, 52, 53] 
 };
 
 const positionElements = (shellDiv, positions) => {
@@ -47,5 +47,5 @@ const initShells = () => {
     });
 };
 
-// Run the initShells function when the DOM content is fully loaded
+
 document.addEventListener('DOMContentLoaded', initShells);
