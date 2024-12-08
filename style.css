@@ -1,174 +1,147 @@
 body {
-
     font-family: Arial, sans-serif;
-
     display: flex;
-
     justify-content: center;
-
     align-items: center;
-
     height: 100vh;
-
     margin: 0;
-
     background-color: #000;
-    
-
     color: white;
- 
-
-    position: relative;
-
     overflow: hidden;
-  
-
 }
-
 .nucleus {
-
     width: 150px;
-
     height: 150px;
-
-    background-color: #ff5757;
-  
-
+    background-color: #FF4B33;
     border-radius: 50%;
-
     text-align: center;
-
     line-height: 150px;
-
     position: absolute;
-
     z-index: 10;
-
     font-weight: bold;
-
     font-size: 1.5em;
-
     color: white;
-  
-
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
-
 .orbital {
-
     position: absolute;
-
     border-radius: 50%;
-
     border: 1px solid #444;
-   
-
     display: flex;
-
     justify-content: center;
-
     align-items: center;
-
     animation: spin 20s linear infinite;
-   
-
+    transition: transform 0.5s;
 }
-
 .orbital span {
-
     position: absolute;
-
     background-color: black;
-  
-
     border: 2px solid white;
-   
-
     border-radius: 50%;
-
     width: 50px;
-
     height: 50px;
-
     text-align: center;
-
     line-height: 50px;
-
     cursor: pointer;
-
     transform-origin: center center;
-
     font-size: 0.9em;
-
     font-weight: bold;
-
     color: white;
-  
-
     box-shadow: 0 0 5px white;
-    
-
+    transition: box-shadow 0.3s;
 }
-
 .orbital:hover span {
-
     background-color: #444;
-   
-
     box-shadow: 0 0 15px white;
-  
-
 }
-
-
-
-.shell1 {
-    width: 300px;
-    height: 300px;
-    animation-duration: 15s;
+.glow {
+    box-shadow: 0 0 20px #FF4B33, 0 0 30px #FF4B33, 0 0 40px #FF4B33;
 }
-
-.shell2 {
-    width: 450px;
-    height: 450px;
-    animation-duration: 17s;
-}
-
-.shell3 {
-    width: 600px;
-    height: 600px;
-    animation-duration: 19s;
-}
-
-.shell4 {
-    width: 750px;
-    height: 750px;
-    animation-duration: 21s;
-}
-
-.shell5 {
-    width: 900px;
-    height: 900px;
-    animation-duration: 23s;
-}
-
-.shell6 {
-    width: 1050px;
-    height: 1050px;
-    animation-duration: 25s;
-}
-
+.shell1 { width: 300px; height: 300px; animation-duration: 5s; }
+.shell2 { width: 450px; height: 450px; animation-duration: 7s; }
+.shell3 { width: 600px; height: 600px; animation-duration: 9s; }
+.shell4 { width: 750px; height: 750px; animation-duration: 11s; }
+.shell5 { width: 900px; height: 900px; animation-duration: 13s; }
+.shell6 { width: 1050px; height: 1050px; animation-duration: 15s; }
 @keyframes spin {
-
-    from {
-
-        transform: rotate(0deg);
-
-    }
-
-    to {
-
-        transform: rotate(360deg);
-
-    }
-
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+.sidebar {
+    position: absolute;
+    top: 0;
+    left: -300px; 
+    width: 250px;
+    height: 100%;
+    background-color: #222;
+    color: white;
+    padding: 20px;
+    z-index: 20;
+    transition: left 0.3s ease;
+    overflow-y: scroll;
+   
+}
+.sidebar.active {
+    left: 0; 
+}
+.element {
+    cursor: pointer;
+    padding: 10px;
+    transition: background-color 0.3s;
+    border-radius: 5px;
+    margin: 5px 0;
+    text-align: left;
+}
+.element:hover {
+    background-color: #444;
+}
+.toggle-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 5px 10px;
+    background-color: #FF4B33;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    z-index: 30;
+    font-size: 0.9em;
+    transition: all 0.3s;
+}
+.collapsible {
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+    max-height: 0;
+}
+.arrow {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    transition: all 0.5s ease;
+    opacity: 0;
+    z-index: 15;
+}
+.arrow.active {
+    opacity: 1;
+}
+.customization-sidebar {
+    position: absolute;
+    top: 0;
+    right: -300px; 
+    width: 250px;
+    height: 100%;
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    z-index: 20;
+    transition: right 0.3s ease;
+    overflow-y: scroll;
+}
+.customization-sidebar.active {
+    right: 0; 
 }
