@@ -1,4 +1,4 @@
-
+alert("please use 50% magnification orelse some functions might not work as intended")
 document.addEventListener('DOMContentLoaded', () => {
     const shellDiv = document.getElementById('shell1');
     const positions = [0, 1, 2]; 
