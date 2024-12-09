@@ -3,35 +3,35 @@ function opensidebar() {
     const sidebar = document.getElementById('sidebar');
     const button = document.getElementById('opensidebar');
     sidebar.classList.toggle('active');
-    button.value = sidebar.classList.contains('active') ? "Close" : "Open Sidebar";
-    if (!sidebar.classList.contains('active')) closeCustomization();
+
+    if (sidebar.classList.contains('active')) {
+        button.value = "Close";
+    } else {
+        button.value = "Open Sidebar";
+        closeCustomization(); 
+    }
 }
 
 function toggleSection(sectionId) {
     const section = document.getElementById(sectionId);
-    section.style.maxHeight = section.style.maxHeight ? null : section.scrollHeight + "px";
+    if (section.style.maxHeight) {
+        section.style.maxHeight = null;
+    } else {
+        section.style.maxHeight = section.scrollHeight + "px";
+    }
 }
 
 function openCustomization(functionName) {
     const customizationSidebar = document.getElementById('customizationSidebar');
     const content = document.getElementById('customizationContent');
-    if (functionName === "Electron Affinity") {
-        content.innerHTML = `<h2>Electron Affinity</h2><h3>As we move away from the nucleus, the less the electron affinity...</h3>`;
-    }
-    if (functionName === "Electronegativity") {
-        content.innerHTML = `<h2>Electronegativity</h2><h3>As we move inner toward the nucleus, generally speaking, the more the electronegativity</h3>`;
-    }
-    if (functionName === "First Ionization Energy") {
-        content.innerHTML = `<h2>First Ionization Energy</h2><h3>As we move away from the nucleus, the less the first ionization energy</h3>`;
-    }
-    if (functionName === "Atomic Radius") {
-        content.innerHTML = `<h2>Atomic Radius</h2><h3>As we move away from the nucleus, the more the atomic radius</h3>`;
-    }
-    if (functionName === "Atomic Mass") {
-        content.innerHTML = `<h2>Atomic Mass</h2><h3>As we move away from the nucleus, the more the atomic mass</h3>`;
+    if(functionName === "Electron Affinity") {
+        content.innerHTML = `
+            <h2>Electron Affinity</h2>
+            <p>As we move away from the nucleus, the less the electron affinity...</p>
+        `;
     }
     customizationSidebar.classList.add('active');
-    closeSidebar();
+    closeSidebar(); 
 }
 
 function closeCustomization() {
@@ -48,34 +48,40 @@ function closeSidebar() {
 function toggleElectronegativity() {
     const arrow = document.getElementById('arrow');
     arrow.classList.toggle('active');
+
     if (arrow.classList.contains('active')) {
         arrow.setAttribute('x1', '2000');
-        arrow.setAttribute('y1', '100');
-        arrow.setAttribute('x2', '1200');
-        arrow.setAttribute('y2', '650');
+        arrow.setAttribute('y1', '100'); 
+        arrow.setAttribute('x2', '1200'); 
+        arrow.setAttribute('y2', '650');  
     }
+ 
 }
 
-function toggleElectronAffinity() {
+function toggleElectronaffinity() {
     const arrow = document.getElementById('arrow');
     arrow.classList.toggle('active');
+
     if (arrow.classList.contains('active')) {
-        arrow.setAttribute('x1', '2000');
-        arrow.setAttribute('y1', '100');
-        arrow.setAttribute('x2', '1200');
-        arrow.setAttribute('y2', '650');
+        arrow.setAttribute('x1', '2000'); 
+        arrow.setAttribute('y1', '100'); 
+        arrow.setAttribute('x2', '1200'); 
+        arrow.setAttribute('y2', '650');   
     }
+ 
 }
 
-function toggleFirstIonizationEnergy() {
+function toggleFirstionizationenergy() {
     const arrow = document.getElementById('arrow');
     arrow.classList.toggle('active');
+
     if (arrow.classList.contains('active')) {
-        arrow.setAttribute('x1', '2000');
-        arrow.setAttribute('y1', '100');
-        arrow.setAttribute('x2', '1200');
-        arrow.setAttribute('y2', '650');
+        arrow.setAttribute('x1', '2000'); 
+        arrow.setAttribute('y1', '100'); 
+        arrow.setAttribute('x2', '1200'); 
+        arrow.setAttribute('y2', '650');  
     }
+    
 }
 
 const elements = [
@@ -97,53 +103,41 @@ const shells = {
 };
 
 const positionElements = (shellDiv, positions) => {
-    const radius = shellDiv.offsetWidth / 2;
-    const centerX = radius;
-    const centerY = radius;
-
-    positions.forEach((index, i) => {
-        const elementSymbol = elements[index];
-        const angle = (i / positions.length) * 2 * Math.PI;
-        const x = centerX + radius * Math.cos(angle) - 25;
-        const y = centerY + radius * Math.sin(angle) - 25;
-        const span = document.createElement('span');
-        span.title = `${elementSymbol}`;
-        span.textContent = elementSymbol;
-        span.style.left = `${x}px`;
-        span.style.top = `${y}px`;
-        span.style.position = 'absolute';
-        
-        
-        span.addEventListener('click', () => showElementInfo(elementSymbol));
-
-        shellDiv.appendChild(span);
-    });
+    const radius = shellDiv.offsetWidth / 2; const centerX = radius; const centerY = radius; positions.forEach((index, i) => { const elementSymbol = elements[index]; const angle = (i / positions.length) * 2 * Math.PI; const x = centerX + radius * Math.cos(angle) - 25; const y = centerY + radius * Math.sin(angle) - 25; const span = document.createElement('span'); span.title = `${elementSymbol}`; span.textContent = elementSymbol; span.style.left = `${x}px`; span.style.top = `${y}px`; span.style.position = 'absolute'; span.addEventListener('click', () => showElementInfo(elementSymbol)); shellDiv.appendChild(span); });
 };
 
 Object.keys(shells).forEach(shell => {
     const shellDiv = document.getElementById(shell);
-    if (shellDiv) {
-        positionElements(shellDiv, shells[shell]);
-    }
+    positionElements(shellDiv, shells[shell]);
 });
 
 function showElementInfo(elementSymbol) {
     const customizationSidebar = document.getElementById('customizationSidebar');
     const content = document.getElementById('customizationContent');
-    const elementInfo = elementInfo.find(el => el.name === elementSymbol);
-    if (element) {
+
+ 
+    const elementInfo = elementsInfo.find(el => el.name === elementSymbol);
+    if (elementInfo) {
         content.innerHTML = `
-            <h2>${element.name}</h2>
-            <p><strong>Atomic Number:</strong> ${element.atomicNumber}</p>
-            <p><strong>Atomic Mass:</strong> ${element.atomicMass}</p>
-            <p><strong>Electron Configuration:</strong> ${element.electronConfig}</p>
+            <h2>${elementInfo.name}</h2>
+            <p><strong>Atomic Number:</strong> ${elementInfo.atomicNumber}</p>
+            <p><strong>Atomic Mass:</strong> ${elementInfo.atomicMass}</p>
+            <p><strong>Electron Configuration:</strong> ${elementInfo.electronConfig}</p>
         `;
     }
     customizationSidebar.classList.add('active');
     closeSidebar(); 
 }
 
-var elementInfo = [
+const elementList = document.getElementById('elementList');
+elementList.querySelectorAll('.element').forEach(el => {
+    el.onclick = function() {
+        showElementInfo(el.textContent);
+    }
+});
+
+
+const elementsInfo = [
     { name: "H", atomicNumber: 1, atomicMass: 1.008, electronConfig: "1s¹" },
     { name: "He", atomicNumber: 2, atomicMass: 4.0026, electronConfig: "1s²" },
     { name: "Li", atomicNumber: 3, atomicMass: 6.94, electronConfig: "1s² 2s¹" },
