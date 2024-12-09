@@ -1,24 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Chemistry Project</title>
+    <title>Periodic Table Orbitals</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <link rel="stylesheet" href="style.css">
-
     <input type="button" class="toggle-button" id="opensidebar" value="Open Sidebar" onclick="opensidebar()">
     <div class="sidebar" id="sidebar">
         <h2 class="element" onclick="toggleSection('functions')">Functions</h2>
         <div id="functions" class="collapsible">
-<div class="element" onclick="toggleElectronAffinity(); openCustomization('Electron Affinity')">Toggle Electron Affinity</div>
-<div class="element" onclick="toggleFirstIonizationEnergy(); openCustomization('First Ionization Energy')">Toggle First Ionization Energy</div>
-<div class="element" onclick="toggleElectronegativity(); openCustomization('Electronegativity')">Toggle Electronegativity</div>
-<div class="element" onclick="toggleElectronegativity(); openCustomization('Atomic Radius')">Toggle Atomic Radius</div>
-<div class="element" onclick="toggleElectronegativity(); openCustomization('Atomic Mass')">Toggle Atomic Mass</div>
+            <div class="element" onclick="toggleElectronaffinity();openCustomization('Electron Affinity')">Toggle Electron Affinity</div>
+            <div class="element" onclick="toggleFirstionizationenergy();openCustomization('First Ionization Energy')">Toggle First Ionization Energy</div>
+            <div class="element" onclick="toggleElectronegativity();openCustomization('Electronegativity')">Toggle Electronegativity</div>
         </div>
         <h2 class="element" onclick="toggleSection('elements')">Elements</h2>
+       
         <div id="elements" class="collapsible">
-            <div id="elementList" onclick=" showElementInfo()">
+            <div id="elementList" >
                 <div class="element" data-index="0">H</div>
                 <div class="element" data-index="1">He</div>
                 <div class="element" data-index="2">Li</div>
@@ -76,12 +74,15 @@
             </div>
         </div>
     </div>
-    
+ 
+        </div>
+    </div>
+
     <div class="customization-sidebar" id="customizationSidebar">
         <div id="customizationContent"></div>
-        <input type="button" onclick="closeCustomization()">Close</input>
+        <button onclick="closeCustomization()">Close</button>
     </div>
- 
+
     <div class="nucleus">Nucleus</div>
     <div class="orbital shell1" id="shell1"></div>
     <div class="orbital shell2" id="shell2"></div>
@@ -89,7 +90,7 @@
     <div class="orbital shell4" id="shell4"></div>
     <div class="orbital shell5" id="shell5"></div>
     <div class="orbital shell6" id="shell6"></div>
-   <script src="script.js"></script>
+
     <svg width="100%" height="100%" style="display:flex;position: absolute; top: 0; left: 0; pointer-events: none;">
         <defs>
             <linearGradient id="gradientArrow" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -99,6 +100,11 @@
         </defs>
         <line id="arrow" class="arrow" x1="2000" y1="100" x2="1200" y2="650" stroke="url(#gradientArrow)" stroke-width="15" />
     </svg>
+
+    <script src="script.js"></script>
+</body>
+</html>
+ 
 
 </body>
 </html>
