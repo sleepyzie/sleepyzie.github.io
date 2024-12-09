@@ -1,4 +1,4 @@
-alert("please use 50% magnification orelse some functions might not work as intended")
+alert("please use 50% magnification orelse some functions might not work as intended!")
 function opensidebar(){let e=document.getElementById("sidebar"),s=document.getElementById("opensidebar");e.classList.toggle("active"),e.classList.contains("active")?s.value="Close":(s.value="Open Sidebar",closeCustomization())}function toggleSection(e){let s=document.getElementById(e);s.style.maxHeight?s.style.maxHeight=null:s.style.maxHeight=s.scrollHeight+"px"}function openCustomization(e){let s=document.getElementById("customizationSidebar"),t=document.getElementById("customizationContent");"Electron Affinity"===e&&(t.innerHTML=`
             <h2>Electron Affinity</h2>
             <p>As we move away from the nucleus, the less the electron affinity...</p>
